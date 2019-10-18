@@ -18,8 +18,14 @@ void SecondThread(const std::string &message)
 {
 	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	std::cout << "Thread ID\t" << std::this_thread::get_id() << "\tThis it SecondThread\t" << std::endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-	std::cout << "Message recieved, message is " << "\"" << message << "\"" << std::endl;
+	while(true)
+	{
+		if (!message.empty())
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			std::cout << "Message recieved, message is " << "\"" << message << "\"" << std::endl;
+		}	
+	}
 	std::cout << "SecondThread has closed" << std::endl;
 }
 
