@@ -24,6 +24,7 @@ void SecondThread(const std::string &message)
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 			std::cout << "Message recieved, message is " << "\"" << message << "\"" << std::endl;
+			break;
 		}	
 	}
 	std::cout << "SecondThread has closed" << std::endl;
